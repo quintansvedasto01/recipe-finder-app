@@ -3,9 +3,7 @@ import { getRandomColor } from "../lib/utils";
 
 const FavoritePage = () => {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log(favorites);
   
-
   return (
     <div className='flex flex-col gap-5 p-10 w-full max-w-screen-xl mx-auto  mb-10'>
       <div className=''>

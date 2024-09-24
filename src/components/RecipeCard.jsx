@@ -28,12 +28,6 @@ const RecipeCard = ({recipe, badgeColor}) => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
-    // const viewFullRecipe = (recipe) => {
-    //     setSelectedRecipe(recipe);
-    //     document.getElementById('recipe_modal').showModal()
-    //     console.log(selectedRecipe);
-    // }
-
     return (
         <>
             <div className='flex flex-col rounded-md overflow-hidden shadow-md'>
