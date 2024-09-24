@@ -28,27 +28,27 @@ export const DesktopSidebar = () => {
 
   return (
     <div className='min-h-screen p-3 md:p-10 bg-[#ECFFE6] shadow-lg w-24 md:w-64 hidden sm:block app-transition'>
-        <div className='flex flex-col gap-20'>
-          <Link to='/' className='flex flex-col items-center cursor-pointer hover:opacity-80'>
-              <div className='w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex flex-col items-center justify-center  border-[3px] border-green-500 rounded-full app-transition'>
-                  <FaUtensils className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] text-green-500 app-transition"/>
-              </div>
-              <p className='text-2xl hidden md:block font-bold app-transition'>
-                <span className='text-green-500'>Reci</span>
-                <span>Feast</span>
-              </p>
-          </Link>
-          <ul className='flex flex-col items-center md:items-start gap-4'>
-              <Link to='/' className={(showTooltip ? "tooltip tooltip-right" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Home">
-                <LuHome size={24} />
-                <span className="font-bold md:block hidden">Home</span>
-              </Link>
-              <Link to='/favorites' className={(showTooltip ? "tooltip tooltip-right" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Favorites">
-                <LuHeart size={24} />
-                <span className="font-bold md:block hidden">Favorites</span>
-              </Link>
-          </ul>
-        </div>
+      <div className='flex flex-col gap-20'>
+        <Link to='/' className='flex flex-col items-center cursor-pointer hover:opacity-80'>
+            <div className='w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex flex-col items-center justify-center  border-[3px] border-green-500 rounded-full app-transition'>
+                <FaUtensils className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] text-green-500 app-transition"/>
+            </div>
+            <p className='text-2xl hidden md:block font-bold app-transition'>
+              <span className='text-green-500'>Reci</span>
+              <span>Feast</span>
+            </p>
+        </Link>
+        <ul className='flex flex-col items-center md:items-start gap-4'>
+            <Link to='/' className={(showTooltip ? "tooltip tooltip-right" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Home">
+              <LuHome size={24} />
+              <span className="font-bold md:block hidden">Home</span>
+            </Link>
+            <Link to='/favorites' className={(showTooltip ? "tooltip tooltip-right" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Favorites">
+              <LuHeart size={24} />
+              <span className="font-bold md:block hidden">Favorites</span>
+            </Link>
+        </ul>
+      </div>
     </div>
   )
 }
@@ -60,7 +60,7 @@ export const MobileSidebar = () => {
           <Link to='/' className="flex items-center gap-1 p-1 hover:text-green-500 app-transition tooltip tooltip-top" data-tip="Home">
             <LuHome size={25} />
           </Link>
-          <Link to='/favorites' className="flex items-center gap-1 p-1 hover:text-green-500 app-transition tooltip tooltip-right"data-tip="Favorites">
+          <Link to='/favorites' className="flex items-center gap-1 p-1 hover:text-green-500 app-transition tooltip tooltip-top"data-tip="Favorites">
             <LuHeart size={25} />
           </Link>
       </ul>

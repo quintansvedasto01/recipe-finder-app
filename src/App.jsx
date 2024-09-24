@@ -6,8 +6,8 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
 
   return (
-    <div className="flex">
-      <Sidebar />
+    <div className="flex bg-slate-50">
+      <Sidebar/>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/favorites' element={<FavoritePage />} />
