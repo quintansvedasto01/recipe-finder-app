@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { LuHeart, LuHeartPulse  } from "react-icons/lu";
 import { TbBowlChopsticks } from "react-icons/tb";
+import { MdDinnerDining } from "react-icons/md";
 
 const getTwoValuesFromArray = (arr) => {
 	return [arr[0], arr[1]];
@@ -8,7 +9,6 @@ const getTwoValuesFromArray = (arr) => {
 
 const RecipeCard = ({recipe, badgeColor}) => {
 
-    const [selectedRecipe, setSelectedRecipe] = useState(recipe);
     const [isFavorite, setIsFavorite] = useState(localStorage.getItem('favorites')?.includes(recipe.label));
 
     const healthLabels = getTwoValuesFromArray(recipe.healthLabels);
@@ -34,7 +34,7 @@ const RecipeCard = ({recipe, badgeColor}) => {
                 {/* href={`recipe.url} */}
                 <a  href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
                     target='_blank'className="relative rounded-t-md">
-                    <img src={recipe.images.REGULAR.url} alt="recipe img" className='w-full app-transition'/>
+                    <img src={recipe.image} alt="recipe img" className='w-full app-transition'/>
 
                     <div 
                         onClick={(e) => {
@@ -57,6 +57,10 @@ const RecipeCard = ({recipe, badgeColor}) => {
                 <div className='px-3 py-2'>
                     <p className='font-bold tracking-wide capitalize'>{recipe.label}</p>
                     <p className='capitalize'>{recipe.cuisineType[0]} Cuisine</p>
+                    <p className='capitalize text-slate-500 text-sm flex items-center gap-1'>
+                        <MdDinnerDining size={14}/>
+                        {recipe.mealType[0]}
+                    </p>
                     <div className='flex flex-wrap gap-1 mt-2'>
                         {healthLabels.map((label, idx) => (
                             <div key={idx} className={`badge ${badgeColor} flex items-center gap-1  whitespace-nowrap`}>

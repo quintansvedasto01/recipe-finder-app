@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { FaUtensils } from "react-icons/fa";
-import { LuHome, LuHeart  } from "react-icons/lu";
+import { LuHome, LuHeart, LuMoonStar } from "react-icons/lu";
 import { Link, useLocation } from 'react-router-dom'
 
 const Sidebar = () => {
@@ -14,7 +14,9 @@ const Sidebar = () => {
 }
 
 export const DesktopSidebar = () => {
-
+  
+  const root = document.querySelector('#root');
+  // console.log(root);
   const location = useLocation();
   
   const [showTooltip, setShowTooltip] = useState(window.innerWidth < 768);
@@ -30,8 +32,8 @@ export const DesktopSidebar = () => {
   }, []);
 
   return (
-    <div className='min-h-screen p-3 md:p-10 bg-[#ECFFE6] shadow-lg w-24 md:w-64 hidden sm:block app-transition'>
-      <div className='flex flex-col gap-20'>
+    <div className='min-h-screen p-3 md:p-10 bg-[#ECFFE6] shadow-lg w-24 md:w-64 hidden sm:block app-transition '>
+      <div className='flex flex-col gap-20 h-full'>
         <Link to='/' className='flex flex-col items-center cursor-pointer hover:opacity-80'>
             <div className='w-[50px] h-[50px] md:w-[70px] md:h-[70px] flex flex-col items-center justify-center  border-[3px] border-green-500 rounded-full app-transition'>
                 <FaUtensils className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] text-green-500 app-transition"/>
@@ -41,20 +43,27 @@ export const DesktopSidebar = () => {
               <span>Feast</span>
             </p>
         </Link>
-        <ul className='flex flex-col items-center md:items-start gap-4'>
-            <Link to='/' className={
-              (showTooltip ? "tooltip tooltip-right" : "") + 
-              (location.pathname === "/" ? " text-green-500" : "") +
-              " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Home">
-              <LuHome size={24} />
-              <span className="font-bold md:block hidden">Home</span>
-            </Link>
-            <Link to='/favorites' className={(showTooltip ? "tooltip tooltip-right" : "") + 
-              (location.pathname === "/favorites" ? " text-green-500" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Favorites">
-              <LuHeart size={24} />
-              <span className="font-bold md:block hidden">Favorites</span>
-            </Link>
-        </ul>
+        <div className='flex flex-col justify-between gap-4 h-full relative'>
+          <ul className='flex flex-col items-center md:items-start gap-4'>
+              <Link to='/favorites' className={(showTooltip ? "tooltip tooltip-right" : "") + 
+                (location.pathname === "/favorites" ? " text-green-500" : "") + " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Favorites">
+                <LuHeart size={24} />
+                <span className="font-bold md:block hidden">Favorites</span>
+              </Link>
+              <Link to='/' className={
+                (showTooltip ? "tooltip tooltip-right" : "") + 
+                (location.pathname === "/" ? " text-green-500" : "") +
+                " flex items-center gap-1 p-1 hover:text-green-500 app-transition"} data-tip="Home">
+                <LuHome size={24} />
+                <span className="font-bold md:block hidden">Home</span>
+              </Link>
+          </ul>
+          <button  className={ " flex items-center justify-center gap-1 app-transition absolute bottom-[0] inset-x-0"}>
+              <div className='p-1 rounded-full fixed bottom-10 z-[5] hover:text-green-500 tooltip tooltip-right' data-tip="Dark Mode">
+                <LuMoonStar size={24}/>
+              </div>
+          </button>
+        </div>
       </div>
     </div>
   )
