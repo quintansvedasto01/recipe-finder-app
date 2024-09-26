@@ -7,3 +7,7 @@
         @apply transition-all duration-500
     }
 }
+
+*{
+    @apply transition-colors duration-500
+}

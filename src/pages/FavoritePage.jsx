@@ -7,7 +7,7 @@ const FavoritePage = () => {
   return (
     <div className='flex flex-col gap-5 p-10 w-full max-w-screen-xl mx-auto  mb-10'>
       <div className=''>
-        <h1 className='text-3xl font-bold'>My Favorites</h1>
+        <h1 className='text-3xl font-bold text-[#3e3e3e] dark:text-white'>My Favorites</h1>
       </div>
       <div>
           {!favorites && (

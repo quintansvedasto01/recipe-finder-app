@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import RecipeCard from '../components/RecipeCard'
 import { getRandomColor } from "../lib/utils";
+import { LuSearch } from "react-icons/lu";
 
 const APP_ID = import.meta.env.VITE_APP_ID;
 const APP_KEY = import.meta.env.VITE_APP_KEY;
@@ -37,27 +38,22 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='flex flex-col gap-5 p-10 w-full max-w-screen-xl mx-auto mb-10'>
+      <div className={
+        (localStorage.getItem('theme') === 'dark' ? 'dark ' : '') + ' flex flex-col gap-5 p-10 w-full max-w-screen-xl mx-auto mb-10'}>
         <form onSubmit={handleSearchRecipe}>
-          <label className="input input-bordered flex items-center gap-2  shadow-sm">
-            <input type="text" className="grow outline-none" placeholder="What do you want to cook today?" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="h-4 w-4 opacity-70">
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd" />
-            </svg>
-          </label>
-        </form>
-
+					<label className='input shadow-md flex items-center gap-2 bg-white dark:dark:bg-slate-900'>
+						<LuSearch size={"24"} />
+						<input
+							type='text'
+							className='text-sm md:text-md grow'
+							placeholder='What do you want to cook today?'
+						/>
+					</label>
+				</form>
         {/* Content */}
         <div className="">
-          <h1 className='text-2xl md:text-3xl font-bold'>Recommended Recipes</h1>
-          <p className='text-[#807d7d] mt-5'>Popular choices</p>
+          <h1 className='text-2xl md:text-3xl font-bold text-[#3e3e3e] dark:text-white'>Recommended Recipes</h1>
+          <p className='text-[#807d7d] dark:text-slate-500 mt-5'>Popular choices</p>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {(!loading && recipes.length > 0) && recipes.map((recipe) => (
               <RecipeCard key={recipe.recipe.label} recipe={recipe.recipe} badgeColor={getRandomColor().badge} />
@@ -66,13 +62,13 @@ const HomePage = () => {
             {loading &&
               [...Array(9)].map((_, index) => (
                 <div key={index} className='flex flex-col gap-4 w-full'>
-                  <div className='skeleton h-40 w-full'></div>
+                  <div className='animate-pulse rounded-lg h-40 w-full bg-slate-300 dark:bg-slate-900'></div>
                   <div className='flex justify-between'>
-                    <div className='skeleton h-4 w-28'></div>
-                    <div className='skeleton h-4 w-24'></div>
+                    <div className='animate-pulse rounded-full h-4 w-28 bg-slate-300 dark:bg-slate-900'></div>
+                    <div className='animate-pulse rounded-full h-4 w-24 bg-slate-300 dark:bg-slate-900'></div>
                   </div>
-                  <div className='skeleton h-4 w-full'></div>
-                  <div className='skeleton h-4 w-full'></div>
+                  <div className='animate-pulse rounded-full h-4 w-full bg-slate-300 dark:bg-slate-900'></div>
+                  <div className='animate-pulse rounded-full h-4 w-full bg-slate-300 dark:bg-slate-900'></div>
                 </div>
               ))}
           </div>

@@ -6,7 +6,8 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
 
   return (
-    <div className="flex bg-slate-50">
+    <div className={ 
+      (localStorage.getItem('theme') === 'dark' ? "dark" : "") + " flex bg-slate-50 dark:bg-slate-800"}>
       <Sidebar/>
       <Routes>
         <Route path='/' element={<HomePage />} />
