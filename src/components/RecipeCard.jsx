@@ -48,7 +48,7 @@ const RecipeCard = ({recipe, badgeColor}) => {
                         {isFavorite ? (
                             <LuHeart size={15} className='fill-red-500 text-red-500 ' />
                         ) : (
-                            <LuHeart size={15} className='group-hover:fill-red-500 group-hover:text-red-500' />
+                            <LuHeart size={15} className='group-hover:fill-red-500 group-hover:text-red-500 text-[#3e3e3e] dark:text-white' />
                         )}
                     </div>
                     <div className='flex items-center gap-1 py-1 px-2 rounded-full absolute bottom-[5px] right-[5px] bg-slate-200 hover:bg-slate-100 dark:dark:bg-slate-700 text-[#3e3e3e] dark:text-white'>

@@ -53,7 +53,7 @@ const HomePage = () => {
         {/* Content */}
         <div className="">
           <h1 className='text-2xl md:text-3xl font-bold text-[#3e3e3e] dark:text-white'>Recommended Recipes</h1>
-          <p className='text-[#807d7d] dark:text-slate-500 mt-5'>Popular choices</p>
+          <p className='text-[#807d7d] dark:text-slate-300 mt-5'>Popular choices</p>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {(!loading && recipes.length > 0) && recipes.map((recipe) => (
               <RecipeCard key={recipe.recipe.label} recipe={recipe.recipe} badgeColor={getRandomColor().badge} />
